@@ -16,7 +16,7 @@ const MiniProfile = () => {
         <h3 className=" text-sm text-gray-400">Welcome to Instagram</h3>
       </div>
       <button
-        onClick={signOut}
+        onClick={() => signOut()}
         className=" text-sm font-semibold text-blue-400"
       >
         Sign Out
