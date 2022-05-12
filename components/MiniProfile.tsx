@@ -12,7 +12,7 @@ const MiniProfile = () => {
         alt=""
       />
       <div className="mx-4 flex-1">
-        <h2 className=" font-bold">{session?.user?.username}</h2>
+        <h2 className=" font-bold">{session?.user?.username || ''}</h2>
         <h3 className=" text-sm text-gray-400">Welcome to Instagram</h3>
       </div>
       <button
