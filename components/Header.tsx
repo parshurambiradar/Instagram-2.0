@@ -73,7 +73,7 @@ const Header = () => {
               <UserGroupIcon className="navBtn" />
               <HeartIcon className="navBtn" />
               <img
-                onClick={signOut}
+                onClick={() => signOut()}
                 src={session?.user?.image || '/images/instagram_logo.png'}
                 alt="profile"
                 title={session?.user?.name || ''}
@@ -82,7 +82,7 @@ const Header = () => {
             </>
           ) : (
             <button
-              onClick={signIn}
+              onClick={() => signIn()}
               className=" text-sm font-semibold text-blue-400"
             >
               Sign In
