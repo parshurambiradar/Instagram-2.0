@@ -16,12 +16,13 @@ import { db, storage } from '../firebase'
 
 const Modal = () => {
   const { data: session } = useSession()
+
   const [open, setOpen] = useRecoilState(modalState)
   const filePickerRef = useRef(null)
   const captionRef = useRef(null)
   const [loading, setLoading] = useState(false)
-  const [selectedFile, setSelectedFile] = useState(null)
-  const addImageToPost = (e) => {
+  const [selectedFile, setSelectedFile] = useState()
+  const addImageToPost = (e: any) => {
     const reader = new FileReader()
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0])
@@ -40,7 +41,7 @@ const Modal = () => {
 
     const docRef = await addDoc(collection(db, 'posts'), {
       username: session?.user?.username,
-      caption: captionRef.current.value,
+      caption: captionRef?.current?.value,
       profileImg: session?.user?.image,
       timestamp: serverTimestamp(),
     })
